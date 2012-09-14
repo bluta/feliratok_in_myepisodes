@@ -1,0 +1,17 @@
+{
+   "background_page": "background.html",
+   "content_scripts": [ {
+      "js": [ "jquery-1.4.2.js", "views.js" ],
+      "matches": [ "http://www.myepisodes.com/views.php*", "http://myepisodes.com/views.php*" ]
+   } ],
+   "description": "A feliratok.hu adatb\u00E1zis\u00E1t haszn\u00E1ljuk, haszn\u00E1lat: kapcsoljunk az epiz\u00F3dokra, hogy let\u00F6lt\u0151dj\u00F6n a felirat lista.",
+   "icons": {
+      "128": "icon128.png",
+      "48": "icon48.png"
+   },
+   "key": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQClGv4WPo7SgPOFRkcb8QPUQroRFkMANJiImF1OyTXILiaAYp+nBY6NwfD/8VKAFH2xrNAi58lWcUlkYYpLELmVIa6xQWf329RdshzH75JgwxxZxw0JNwaZUYeuOSraPAMcVm/WDcp07bjR375S45YIYeoWtWn2hlTMyVmfNyzvbwIDAQAB",
+   "name": "Feliratkeres\u0151 a MyEpisodes.com-hoz",
+   "permissions": [ "http://www.feliratok.info/" ],
+   "update_url": "http://clients2.google.com/service/update2/crx",
+   "version": "1.4.4"
+}
