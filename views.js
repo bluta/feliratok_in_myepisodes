@@ -73,7 +73,9 @@ function onResponse(data) {
 
 $("table.mylist tr").each(function() {
 	var $row = $(this);
-	if( $row.hasClass("Episode_PastOne") || $row.hasClass("Episode_PastTwo") || $row.hasClass("Episode_Today")) {
+	if( $row.hasClass("Episode_PastOne") || $row.hasClass("Episode_PastTwo") || $row.hasClass("Episode_Today") || $row.hasClass("Episode_Hover") || $row.hasClass("Episode_One") || $row.hasClass("Episode_Two") ) {
+    var past = $row.hasClass("Episode_PastOne") || $row.hasClass("Episode_PastTwo") || $row.hasClass("Episode_Today")
+
 		var show = $("td.showname a", $row).html();
 		show = changeShowNameIfNeeded(show);
 		var se = $("td.longnumber", $row).html();
@@ -83,26 +85,12 @@ $("table.mylist tr").each(function() {
 		}
 		var searchString = show + " - " + se;
 		rows[searchString] = $row;
+
+    if(past) {
 		$row.after('<tr><td colspan="7"><div style="padding: 5px; background-color: #D1E0F0"><img src="'+chrome.extension.getURL("loader.gif")+'"/></div></td></tr>');
 		chrome.extension.sendRequest({'action' : 'fetchSubtitles', 'search' : searchString}, onResponse);
-		$row.click(function() {
-			if($row.next().find("td > div").length != 0) {
-				// már létezik a box.
-				$row.next().remove();
-			}
-			$row.after('<tr><td colspan="7"><div style="padding: 5px; background-color: #D1E0F0"><img src="'+chrome.extension.getURL("loader.gif")+'"/></div></td></tr>');
-			chrome.extension.sendRequest({'action' : 'fetchSubtitles', 'search' : searchString}, onResponse);
-		});
-	} else if( $row.hasClass("Episode_One") || $row.hasClass("Episode_Two") || $row.hasClass("Episode_Hover") ) {
-		var show = $("td.showname", $row).html();
-		show = changeShowNameIfNeeded(show);
-		var se = $("td.longnumber", $row).html();
-		if(se[0] == '0') {
-			// vágjuk le az első nullát
-			se = se.substring(1);
-		}
-		var searchString = show + " - " + se;
-		rows[searchString] = $row;
+    }
+
 		$row.click(function() {
 			if($row.next().find("td > div").length != 0) {
 				// már létezik a box.
