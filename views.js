@@ -73,7 +73,7 @@ function onResponse(data) {
 
 $("table.mylist tr").each(function() {
 	var $row = $(this);
-	if( $row.hasClass("Episode_PastOne") || $row.hasClass("Episode_PastTwo") ) {
+	if( $row.hasClass("Episode_PastOne") || $row.hasClass("Episode_PastTwo") || $row.hasClass("Episode_Today")) {
 		var show = $("td.showname a", $row).html();
 		show = changeShowNameIfNeeded(show);
 		var se = $("td.longnumber", $row).html();
