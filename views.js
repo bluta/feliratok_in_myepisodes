@@ -45,9 +45,9 @@ function onResponse(data) {
 		$container.html('');
 		$('tr#vilagit', $table).each(function() {
 			var $row = $(this);
-			var link = $row.find(':nth-child(2) a');
+//			var link = $row.find(':nth-child(4) a');
 			var dllink = $row.find(':last-child a');
-			var title = link.html();
+			var title = $row.find('div.eredeti').html();
 
 			var language = $row.find('td.lang small').html();
 			if( language == "Angol" ) {
