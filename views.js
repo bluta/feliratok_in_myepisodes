@@ -18,6 +18,8 @@ function changeShowNameIfNeeded(show) {
 		"Luther" : "Luther (2010) (UK)",
 		"Castle (2009)" : "Castle",
 		"Chaos" : "Chaos (2011)",
+    "Strike Back: Vengeance" : "Strike Back",
+    "Revolution (2012)" : "Revolution",
 	};
 	if( map[show] != undefined ) {
 		show = map[show];
